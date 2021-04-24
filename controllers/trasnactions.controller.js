@@ -155,7 +155,7 @@ exports.logs = async (req, res) => {
 
 	try {
 		const logs = await trasnactionModel.find({
-			from: req.params.id,
+			from: req.params.email,
 			operation_type: type,
 		});
 
