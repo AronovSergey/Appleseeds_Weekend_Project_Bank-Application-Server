@@ -147,16 +147,14 @@ exports.transfer = async (req, res) => {
 };
 
 exports.logs = async (req, res) => {
-	const { type } = req.body;
-
-	console.log(type);
+	console.log(type, req.params.email);
 	if (!type || Object.keys(req.body).length > 1)
 		return res.status(400).send("Invalid update");
 
 	try {
 		const logs = await trasnactionModel.find({
 			to: req.params.email,
-			operation_type: type,
+			operation_type: req.params.type,
 		});
 
 		if (!logs)
