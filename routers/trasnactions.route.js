@@ -4,7 +4,7 @@ const router = express.Router();
 
 router
 	.get("/", trasnactionsControler.getAllTrasnactions)
-	.get("/trasnactions/:id", trasnactionsControler.logs)
+	.get("/:id", trasnactionsControler.logs)
 	.put("/deposit/:id", trasnactionsControler.deposit)
 	.put("/update-credit/:id", trasnactionsControler.updateCredit)
 	.put("/withdraw/:id", trasnactionsControler.withdraw)
