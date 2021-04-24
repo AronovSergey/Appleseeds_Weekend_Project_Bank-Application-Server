@@ -145,3 +145,24 @@ exports.transfer = async (req, res) => {
 		res.status(500).send(error);
 	}
 };
+
+exports.logs = async (req, res) => {
+	const type = parseInt(req.body.amount);
+
+	if (!type || Object.keys(req.body).length > 1)
+		return res.status(400).send("Invalid update");
+
+	try {
+		const logs = await trasnactionModel.find({
+			from: req.params.id,
+			operation_type: type,
+		});
+
+		if (!logs)
+			return res.status(404).send("The id you entered does not exist");
+
+		res.status(201).json({ logs });
+	} catch (error) {
+		res.status(500).send(error);
+	}
+};
