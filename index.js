@@ -15,7 +15,7 @@ app.use(express.json());
 //Routes
 app.use("/api/bank/account", accounntsRouter);
 app.use("/api/bank/trasnactions", trasnactionsRouter);
-app.use("/", (req, res) => res.send("sergey"));
+app.use("/", (req, res) => res.send("Bank Application"));
 
 //Connect to db with mongoose
 const uri =
