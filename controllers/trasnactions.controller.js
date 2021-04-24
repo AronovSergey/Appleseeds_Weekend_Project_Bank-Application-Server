@@ -147,8 +147,9 @@ exports.transfer = async (req, res) => {
 };
 
 exports.logs = async (req, res) => {
-	const type = parseInt(req.body.type);
+	const { type } = req.body;
 
+	console.log(type);
 	if (!type || Object.keys(req.body).length > 1)
 		return res.status(400).send("Invalid update");
 
